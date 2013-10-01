@@ -37,3 +37,13 @@ void Ball::moveY(){
 
 void Ball::reverseDx(){myDx *= -1;}
 void Ball::reverseDy(){myDy *= -1;}
+
+IntRect Ball::getHitbox() const{
+	IntRect hitBox;
+	hitBox.left = myShape->getPosition().x;
+	hitBox.top = myShape->getPosition().y;
+	hitBox.width = mySize;
+	hitBox.height = mySize;
+
+	return hitBox;
+}

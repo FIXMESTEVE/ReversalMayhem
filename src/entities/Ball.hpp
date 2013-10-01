@@ -27,7 +27,7 @@ public:
 	void reverseDy();
 
 	sf::CircleShape* getShape();
-	sf::IntRect getHitbox();
+	sf::IntRect getHitbox() const;
 };
 
 #endif /* BALL_HPP_ */
