@@ -4,6 +4,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "entities/Ball.hpp"
+#include "CollisionEngine.hpp"
 
 using namespace std;
 using namespace sf;
@@ -21,6 +22,7 @@ int main(){
 	RenderWindow app(VideoMode(WINDOW_SIZE.x, WINDOW_SIZE.y, 32), "Reversal Mayhem v0.1 prealpha");
 	app.setFramerateLimit(MAX_FRAMERATE);
 	Ball* ball = new Ball(BALL_POS_INIT, BALL_SIZE, BALL_SPEED, BALL_SPEED, BALL_SPEED);
+	CollisionEngine* collision = new CollisionEngine(ball, WINDOW_SIZE);
 	//main loop
 	while (app.isOpen()){
 		Event event;
@@ -31,8 +33,11 @@ int main(){
 		}
 
 		//game logic starts here
-		ball->moveX(); ball->moveY();
-		cout << "ball X == " << ball->getShape()->getPosition().x << "; ball Y == " << ball->getShape()->getPosition().y << endl;
+		ball->moveX();
+		collision->collideX();
+		ball->moveY();
+		collision->collideY();
+		//cout << "ball X == " << ball->getShape()->getPosition().x << "; ball Y == " << ball->getShape()->getPosition().y << endl;
 		//game logic ends here
 
 		//screen clear and filling (black by default)
@@ -47,6 +52,8 @@ int main(){
 	}
 	//delete all objects before leaving
 	delete ball;
+	delete collision;
+
 	return EXIT_SUCCESS;
 }
 
