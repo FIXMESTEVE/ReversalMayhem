@@ -14,9 +14,9 @@ using namespace sf;
 Ball::Ball(Vector2f position, int size, int dx, int dy, float speed)
 : mySize(size), myDx(speed), myDy(speed), mySpeed(speed)
 {
-	myShape = new CircleShape();
-	myShape->setFillColor(sf::Color(100,250,50));
-	myShape->setRadius(mySize/2);
+	myShape = new RectangleShape();
+	myShape->setFillColor(sf::Color(0,0,255));
+	myShape->setSize(Vector2f(size,size));
 	myShape->setPosition(position);
 }
 
@@ -25,7 +25,7 @@ Ball::~Ball(){
 	cout << "ball deleted" <<endl; //did we delete the ball?
 }
 
-CircleShape* Ball::getShape(){return myShape;}
+RectangleShape* Ball::getShape(){return myShape;}
 
 void Ball::moveX(){
 	myShape->move(myDx, 0);

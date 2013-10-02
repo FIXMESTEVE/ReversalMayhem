@@ -12,7 +12,7 @@ using namespace sf;
 //Game constants
 const Vector2f WINDOW_SIZE(800,600);
 const unsigned int MAX_FRAMERATE = 30;
-const int BALL_SIZE = 10;
+const int BALL_SIZE = 35;
 //We center the ball at game start
 const Vector2f BALL_POS_INIT(WINDOW_SIZE.x/2 - BALL_SIZE/2, WINDOW_SIZE.y/2 - BALL_SIZE/2);
 const int BALL_SPEED = 8;

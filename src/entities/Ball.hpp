@@ -12,7 +12,7 @@
 
 class Ball{
 private:
-	sf::CircleShape *myShape;
+	sf::RectangleShape *myShape;
 	int mySize;
 	float myDx;
 	float myDy;
@@ -26,7 +26,7 @@ public:
 	void reverseDx();
 	void reverseDy();
 
-	sf::CircleShape* getShape();
+	sf::RectangleShape* getShape();
 	sf::IntRect getHitbox() const;
 };
 
