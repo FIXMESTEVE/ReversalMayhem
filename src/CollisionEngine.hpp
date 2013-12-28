@@ -9,12 +9,16 @@
 #define COLLISIONENGINE_HPP_
 
 #include "entities/Ball.hpp"
+#include "entities/Player.hpp"
+
 class CollisionEngine{
 	private:
-		Ball *myBall;
-		sf::Vector2f myScreen;
+		Ball *_ball;
+		Player *_p1;
+		Player *_p2;
+		sf::Vector2f _screen;
 	public:
-		CollisionEngine(Ball *ball, sf::Vector2f screen);
+		CollisionEngine(Ball *ball, Player *p1, Player *p2, sf::Vector2f screen);
 		~CollisionEngine();
 		void collideX();
 		void collideY();

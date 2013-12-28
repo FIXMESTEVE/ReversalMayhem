@@ -7,27 +7,19 @@
 
 #ifndef BALL_HPP_
 #define BALL_HPP_
+#include "MovableGraphicElement.hpp"
 
-#include <SFML/Graphics.hpp>
-
-class Ball{
+class Ball : public MovableGraphicElement{
 private:
-	sf::RectangleShape *myShape;
-	int mySize;
-	float myDx;
-	float myDy;
-	float mySpeed;
-
+    Animation* _rotatingBall;
 public:
-	Ball(sf::Vector2f position, int size, int dx, int dy, float speed);
-	~Ball();
-	void moveX();
-	void moveY();
+	Ball(sf::Vector2f position, int size, int dx, int dy, int speed);
+	virtual ~Ball();
+	void handleAnimation();
+	sf::IntRect getHitbox() const;
+	void resetPosition();
 	void reverseDx();
 	void reverseDy();
-
-	sf::RectangleShape* getShape();
-	sf::IntRect getHitbox() const;
 };
 
 #endif /* BALL_HPP_ */
